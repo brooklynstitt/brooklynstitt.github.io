@@ -1,259 +1,144 @@
-/* --- Variables & Reset --- */
-:root {
-    /* The Palette based on your images */
-    --bg-color: #FAF9F6;          /* Off-white/Cream */
-    --bg-alt: #F3CFC6;            /* The "Charlotte" Pink from image 2 */
-    --text-main: #2F4836;         /* Deep Forest Green from image 1 */
-    --text-light: #5A6E60;        /* Softer Green for body text */
-    --accent: #D65A31;            /* Burnt Orange/Terracotta for buttons/hover */
-    --white: #ffffff;
-    
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <nav>
+        <div class="logo">Name/Logo</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-}
+    <header class="hero">
+        <div class="hero-content">
+            <p class="greeting">Hello, I'm [Your Name]</p>
+            <h1>Software Developer <br>& Data Researcher.</h1>
+            <p class="bio">
+                Computer Science Student. Tutor. Future Researcher.<br>
+                Building elegant logic for complex problems.
+            </p>
+            <div class="cta-group">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="your-resume.pdf" target="_blank" class="btn-secondary">Resume</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="blob"></div>
+        </div>
+    </header>
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; }
+    <section id="skills" class="section">
+        <h2 class="section-title">Technical Toolkit</h2>
+        <div class="skills-wrapper">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="tags">
+                    <span>HTML/CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>Figma</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Backend & Data</h3>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Database Mgmt</span>
+                    <span>Data Analysis</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <div class="tags">
+                    <span>Git/GitHub</span>
+                    <span>VS Code</span>
+                    <span>Linux</span>
+                    <span>Research Methods</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* --- Typography --- */
-h1, h2, h3 {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    color: var(--text-main);
-}
+    <section id="projects" class="section alt-bg">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="project-grid">
+            
+            <article class="project-card">
+                <div class="card-header">
+                    <span class="badge">Web Dev</span>
+                    <h3>CERC Website</h3>
+                </div>
+                <p>A full-stack solution designed for [Client Name]. Focused on user accessibility and responsive design using [Tech Stack].</p>
+                <div class="card-links">
+                    <a href="#">View Code &rarr;</a>
+                    <a href="#">Live Demo &rarr;</a>
+                </div>
+            </article>
 
-h1 {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-}
+            <article class="project-card">
+                <div class="card-header">
+                    <span class="badge">Backend</span>
+                    <h3>Inventory DB System</h3>
+                </div>
+                <p>Designed a relational database schema for managing inventory. Optimized SQL queries for performance and data integrity.</p>
+                <div class="card-links">
+                    <a href="#">View Repo &rarr;</a>
+                </div>
+            </article>
 
-h2.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-}
+            <article class="project-card upcoming">
+                <div class="card-header">
+                    <span class="badge">In Progress</span>
+                    <h3>Plotathon Entry</h3>
+                </div>
+                <p>Upcoming data visualization project focusing on [Topic]. Combining data analysis with storytelling.</p>
+                <div class="card-links">
+                    <span>Coming Soon</span>
+                </div>
+            </article>
 
-/* --- Layout Utilities --- */
-.section {
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+        </div>
+    </section>
 
-/* --- Navigation --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    <section id="about" class="section">
+        <h2 class="section-title">Experience & Research</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="date">2023 - Present</span>
+                <h3>Computer Science Tutor</h3>
+                <p>Mentoring peers in algorithms, data structures, and debugging strategies. Translating complex technical concepts into clear explanations.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">Upcoming</span>
+                <h3>Undergraduate Researcher</h3>
+                <p>Preparing to conduct research in [Field], focusing on data collection and analysis methodologies.</p>
+            </div>
+        </div>
+    </section>
 
-.logo {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 1.5rem;
-}
+    <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p>Open for internships and research opportunities.</p>
+        <div class="social-links">
+            <a href="mailto:your@email.com">Email</a>
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="https://linkedin.com">LinkedIn</a>
+        </div>
+        <p class="copyright">&copy; 2024. Coded with &hearts; by You.</p>
+    </footer>
 
-.nav-links { display: flex; gap: 2rem; }
-.nav-links a { 
-    font-size: 0.9rem; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-}
-.nav-links a:hover { color: var(--accent); }
-
-/* --- Hero Section --- */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 80vh;
-    padding: 0 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.hero-content { max-width: 600px; z-index: 2; }
-.greeting {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--accent);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.bio {
-    color: var(--text-light);
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-}
-
-/* Buttons */
-.btn-primary {
-    background-color: var(--text-main);
-    color: var(--white);
-    padding: 10px 24px;
-    border-radius: 50px; /* Pill shape */
-    display: inline-block;
-    margin-right: 1rem;
-}
-.btn-primary:hover { background-color: var(--accent); }
-
-.btn-secondary {
-    border: 1px solid var(--text-main);
-    padding: 10px 24px;
-    border-radius: 50px;
-}
-.btn-secondary:hover { background-color: var(--bg-alt); border-color: var(--bg-alt); }
-
-/* Abstract Shape for Hero */
-.blob {
-    width: 300px;
-    height: 300px;
-    background-color: var(--bg-alt);
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    animation: morph 8s ease-in-out infinite;
-    z-index: 1;
-}
-
-@keyframes morph {
-    0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
-}
-
-/* --- Skills --- */
-.skills-wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-category h3 { margin-bottom: 1rem; font-size: 1.2rem; }
-
-.tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-.tags span {
-    background-color: var(--white);
-    border: 1px solid var(--bg-alt);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--text-main);
-}
-
-/* --- Projects --- */
-.alt-bg {
-    background-color: var(--bg-alt); /* The pink background strip */
-    border-radius: 20px;
-    margin: 4rem auto;
-    padding: 4rem 2rem;
-    width: 95%; /* Creates a framed look */
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: var(--bg-color);
-    padding: 2rem;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--text-main);
-}
-
-.badge {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-.project-card h3 { margin: 0.5rem 0 1rem 0; font-size: 1.5rem; }
-.project-card p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; }
-
-.card-links a {
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-right: 1rem;
-    border-bottom: 1px solid var(--accent);
-}
-
-/* --- Timeline / Experience --- */
-.timeline {
-    border-left: 2px solid var(--bg-alt);
-    padding-left: 2rem;
-}
-
-.timeline-item { margin-bottom: 2.5rem; position: relative; }
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.6rem;
-    top: 5px;
-    width: 15px;
-    height: 15px;
-    background: var(--text-main);
-    border-radius: 50%;
-}
-
-.date {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--accent);
-    font-size: 0.9rem;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: var(--text-main);
-    color: var(--bg-color);
-}
-
-footer h2 { color: var(--bg-alt); }
-footer p { color: #cfcfcf; margin-bottom: 1.5rem; }
-
-.social-links { margin-bottom: 2rem; }
-.social-links a {
-    color: var(--bg-color);
-    margin: 0 1rem;
-    font-size: 1.1rem;
-    border-bottom: 1px solid transparent;
-}
-.social-links a:hover { border-bottom: 1px solid var(--bg-alt); }
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; padding-top: 4rem; }
-    .hero-content { margin-bottom: 2rem; }
-    h1 { font-size: 2.5rem; }
-    nav { flex-direction: column; gap: 1rem; }
-}
+</body>
+</html>
