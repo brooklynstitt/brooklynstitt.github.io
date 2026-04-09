@@ -3,151 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Software Developer</title>
+    <title>Brooklyn Stitt | Software Developer</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+ 
+        :root {
+            --bg-color: #FAF9F6;         
+            --bg-alt: #F3CFC6;            
+            --text-main: #2F4836;        
+            --text-light: #5A6E60;        
+            --accent: #D65A31;           
+            --white: #ffffff;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+      
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; color: var(--text-main); }
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1rem; }
+        h2.section-title { font-size: 2.5rem; margin-bottom: 2rem; text-align: center; }
+
+        .section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .logo { font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a:hover { color: var(--accent); }
+
+
+        .hero { display: flex; align-items: center; justify-content: space-between; min-height: 80vh; padding: 0 2rem; max-width: 1100px; margin: 0 auto; gap: 2rem; }
+        .hero-content { max-width: 600px; z-index: 2; }
+        .greeting { font-family: var(--font-serif); font-style: italic; color: var(--accent); font-size: 1.2rem; margin-bottom: 0.5rem; }
+        
+        .hero-socials { display: flex; gap: 1.5rem; margin-top: 1rem; margin-bottom: 2rem; font-weight: 600; font-size: 0.95rem; }
+        .hero-socials a { border-bottom: 1px solid var(--text-main); padding-bottom: 2px; }
+        .hero-socials a:hover { color: var(--accent); border-color: var(--accent); }
+
+        /* Buttons */
+        .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-primary, .btn-secondary { padding: 10px 24px; border-radius: 50px; font-weight: 600; display: inline-block; transition: 0.3s; text-align: center; }
+        .btn-primary { background-color: var(--text-main); color: var(--white); border: 1px solid var(--text-main); }
+        .btn-primary:hover { background-color: var(--accent); border-color: var(--accent); }
+        .btn-secondary { border: 1px solid var(--text-main); color: var(--text-main); }
+        .btn-secondary:hover { background-color: var(--bg-alt); border-color: var(--bg-alt); }
+        
+        .hero-visual { flex-shrink: 0; }
+        .arch-photo {
+            width: 320px;
+            height: 420px;
+            background-color: var(--bg-alt);
+            border-top-left-radius: 160px;
+            border-top-right-radius: 160px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            object-fit: cover;
+            box-shadow: 15px 15px 0px var(--text-main);
+            transition: transform 0.3s ease;
+        }
+        .arch-photo:hover { transform: translateY(-5px); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+        .about-label { font-family: var(--font-serif); font-size: 1.5rem; color: var(--accent); font-style: italic; }
+        .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+        .up-to-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .up-to-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+        .up-to-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        .card-img-placeholder { width: 100%; height: 200px; background-color: #e9e9e9; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .card-content h3 { margin-bottom: 0.5rem; }
+        .card-content p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 1.5rem; }
+        .btn-small { background-color: var(--bg-alt); color: var(--text-main); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .btn-small:hover { background-color: var(--text-main); color: var(--white); }
+
+        /* Alt Background Section */
+        .alt-bg { background-color: var(--bg-alt); border-radius: 20px; margin: 4rem auto; padding: 4rem 2rem; width: 95%; }
+
+        /* Projects & Experience Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--bg-color); padding: 2rem; border-radius: 12px; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); border: 1px solid var(--text-main); }
+        .badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); font-weight: bold; }
+        .project-card h3 { margin: 0.5rem 0 1rem 0; font-size: 1.3rem; }
+
+        /* Timeline */
+        .timeline { border-left: 2px solid var(--bg-alt); padding-left: 2rem; max-width: 800px; margin: 0 auto; }
+        .timeline-item { margin-bottom: 2.5rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -2.6rem; top: 5px; width: 15px; height: 15px; background: var(--text-main); border-radius: 50%; }
+        .date { font-family: var(--font-serif); font-style: italic; color: var(--accent); font-size: 0.9rem; }
+
+        /* Skills */
+        .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .tags span { background-color: var(--white); border: 1px solid var(--bg-alt); padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; display: inline-block; margin: 4px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 4rem 2rem; background-color: var(--text-main); color: var(--bg-color); margin-top: 4rem;}
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 850px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 2rem; }
+            .hero-content { margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center;}
+            .about-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .cta-group { justify-content: center; }
+            nav { flex-direction: column; gap: 1rem; }
+            .hero-socials { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">Brooklyn Stitt</div>
         <ul class="nav-links">
-            <li><a href="#about">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <!--<li><a href="#projects">Projects</a></li>-->
-            <li><a href="#contact" target="_blank">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#now">Up To</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <p class="greeting">Hello, I'm</p>
-            <h1>Brooklyn Stitt</h1>
-            <p class="bio">
-                3rd Year Computer Science Student. Head Computer Science Tutor. Web Designer.
+            <p class="greeting">Hello, I'm Brooklyn</p>
+            <h1>Software Developer &<br>Cybersecurity Intern.</h1>
+            
+            <div class="hero-socials">
+                <a href="mailto:brooklyn_stitt@outlook.com">Email Me</a>
+                <a href="https://linkedin.com/in/YOUR_URL_HERE" target="_blank">LinkedIn</a>
+                <a href="https://github.com/YOUR_URL_HERE" target="_blank">GitHub</a>
+            </div>
+
+            <p class="bio" style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">
+                CSUB Computer Science Student. Upcoming intern at LLNL.<br>
+                Building secure, resilient systems and elegant logic.
             </p>
+            
             <div class="cta-group">
-                <!--<a href="#projects" class="btn-primary">View Projects</a>-->
-                <a href="Brooklyn_Stitt_Resume.pdf"target="_blank" class="btn-secondary">Resume</a>
+                <a href="Brooklyn_Stitt_Resume.pdf" target="_blank" class="btn-primary">View Resume</a>
+                <a href="Brooklyn_Stitt_Resume.pdf" download class="btn-secondary">Download Resume</a>
             </div>
         </div>
+        
         <div class="hero-visual">
-            <div class="blob"></div>
+            <img src="YOUR_PHOTO_HERE.jpg" alt="Brooklyn Stitt" class="arch-photo">
         </div>
     </header>
 
-    <section id="skills" class="section">
-        <h2 class="section-title">Technical Toolkit</h2>
-        <div class="skills-wrapper">
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <div class="tags">
-                    <span>HTML/CSS</span>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Backend</h3>
-                <div class="tags">
-                    <span>C++</span>
-                    <span>C</span>
-                    <span>Python</span>
-                    <span>SQL</span>
-                    <span>Database Mgmt</span>
-                    <span>Data Analysis</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Tools & Environment</h3>
-                <div class="tags">
-                    <span>Linux</span>
-                    <span>GitHub</span>
-                    <span>Visual Studio Code</span>
-                    <span>Linux</span>
-                    <span>Research Methods</span>
-                </div>
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-label">Who I am</div>
+            <div class="about-text">
+                <p>I am a 3rd-year Computer Science student at California State University, Bakersfield, graduating in May 2027. My academic journey is driven by a deep curiosity for how complex systems work under the hood.</p>
+                <p><strong>What motivates me:</strong> I am passionate about building resilient systems, whether that means securing critical infrastructure, optimizing databases, or creating intuitive front-end experiences. I love taking complex, messy problems and translating them into clean, elegant logic.</p>
+                <p><strong>What I'm looking for:</strong> I am actively seeking roles and internships in software development, backend engineering, and cybersecurity where I can apply my skills in C++, Python, and full-stack environments.</p>
             </div>
         </div>
     </section>
 
-    <!--<section id="projects" class="section alt-bg">
-        <h2 class="section-title">My Recent Work</h2>
+    <section id="now" class="section alt-bg">
+        <h2 class="section-title">What I'm Currently Up To</h2>
+        <div class="up-to-grid">
+            
+            <div class="up-to-card">
+                <img src="cerc-screenshot.jpg" alt="CERC Website Screenshot" class="card-img-placeholder">
+                <div class="card-content">
+                    <h3>CERC Conference Webpage</h3>
+                    <p>As a Web Developer for the California Energy Research Center, I'm building an interactive, responsive conference program webpage. I handle live environment troubleshooting and UI/UX enhancements.</p>
+                    <a href="LINK_TO_CERC_WEBSITE" target="_blank" class="btn-small">Visit Official Site &rarr;</a>
+                </div>
+            </div>
+
+            <div class="up-to-card">
+                <img src="game-screenshot.jpg" alt="Video Game Screenshot" class="card-img-placeholder">
+                <div class="card-content">
+                    <h3>Indie Game Development</h3>
+                    <p>In my free time, I'm designing and developing an interactive video game using Godot and GDScript. Focusing on game state logic, user input handling, and creating an engaging player experience.</p>
+                    <span class="badge">In Development</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <span class="date">Upcoming: Summer 2026</span>
+                <h3>Cybersecurity & Critical Infrastructure Intern</h3>
+                <p><strong>Lawrence Livermore National Laboratory (LLNL)</strong><br>Selected for the CSI program to support national security missions. Will be utilizing C++ and Python to develop software tools for network analysis, threat characterization, and infrastructure modeling.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">Feb 2026 - Present</span>
+                <h3>Undergraduate Research Assistant</h3>
+                <p><strong>CSU Bakersfield (Geophysics)</strong><br>Developing data visualization scripts in Python (PyGMT, Pandas) to interpret thermal evolution and simulating geological histories over 50 Ma timescales.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="date">Aug 2024 - Present</span>
+                <h3>Lead Computer Science Tutor</h3>
+                <p><strong>CSU Bakersfield</strong><br>Managing a team of tutors coordinating coverage for 10+ core CS courses. Providing instruction in programming languages, data structures, and algorithms.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Technical Projects</h2>
         <div class="project-grid">
             
             <article class="project-card">
-                <div class="card-header">
-                    <span class="badge">Web Dev</span>
-                    <h3>CERC Website</h3>
-                </div>
-                <p>...</p>
-                <div class="card-links">
-                    <!--<a href="#">View Code &rarr;</a>-->
-                    <!--<a href="#">Live Demo &rarr;</a>
-                </div>
+                <div class="card-header"><span class="badge">Full-Stack Database</span><h3>Airline Reservation System</h3></div>
+                <p>Designed a relational MariaDB database and implemented SQL stored procedures for transactional integrity. Developed a dynamic PHP backend integrated with HTML/CSS/JS frontend.</p>
             </article>
 
             <article class="project-card">
-                <div class="card-header">
-                    <span class="badge">Backend</span>
-                    <h3>Inventory DB System</h3>
-                </div>
-                <p>Designed a relational database schema for managing inventory. Optimized SQL queries for performance and data integrity.</p>
-                <div class="card-links">
-                    <a href="#">View Repo &rarr;</a>
-                </div>
-            </article>
-
-            <article class="project-card upcoming">
-                <div class="card-header">
-                    <span class="badge">In Progress</span>
-                    <h3>Plotathon Entry</h3>
-                </div>
-                <p>Upcoming data visualization project focusing on [Topic]. Combining data analysis with storytelling.</p>
-                <div class="card-links">
-                    <span>Coming Soon</span>
-                </div>
+                <div class="card-header"><span class="badge">Python / API</span><h3>Fruit Guessing Game</h3></div>
+                <p>Implemented decision tree logic and a Flask-based RESTful API to handle real-time game state, processing user input through elimination questions.</p>
             </article>
 
         </div>
-    </section>-->
+    </section>
 
-    <section id="about" class="section">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <!--<div class="timeline-item">
-                <span class="date">Upcoming</span>
-                <h3>Undergraduate Researcher</h3>
-                <p>Preparing to collaborate with the Geophysics department, focusing on data collection and analysis methodologies.</p>
-            </div>-->
-            <div class="timeline-item">
-                <span class="date">Oct. 2025 - Present</span>
-                <h3>Website Developer & Designer • California Energy Research Center</h3>
-                <p>Designing and Developing the CERC website and its annual Conference portal, ensuring a seamless visual identity across all platforms.</p>
+    <section id="skills" class="section alt-bg" style="margin-bottom: 0;">
+        <h2 class="section-title">Technical Toolkit</h2>
+        <div class="skills-wrapper">
+            <div class="skill-category">
+                <h3>Systems & Languages</h3>
+                <div class="tags">
+                    <span>C++</span><span>C</span><span>Python</span><span>Assembly (MIPS/ARM/x86)</span><span>GDScript</span>
+                </div>
             </div>
-            <div class="timeline-item">
-                <span class="date">Aug. 2024 - Present</span>
-                <h3>Head Computer Science Tutor • California State University: Bakersfield</h3>
-                <p>Mentoring peers in algorithms, data structures, and debugging strategies. Translating complex technical concepts into clear explanations.</p>
+            <div class="skill-category">
+                <h3>Web & Data</h3>
+                <div class="tags">
+                    <span>JavaScript</span><span>HTML/CSS</span><span>PHP</span><span>SQL (MariaDB/SQLite)</span><span>Flask</span>
+                </div>
             </div>
-            <div class="timeline-item">
-                <span class="date">Jan. 2025 - Jan. 2026</span>
-                <h3>C++ Fundamentals Teaching Assistant • California State University: Bakersfield</h3>
-                <p> Provides direct support in lectures, labs, and office hours, ensuring students can grasp complex C++ topics such as data types, control structures, functions, object-oriented programming, and memory management.</p>
+            <div class="skill-category">
+                <h3>Tools & Concepts</h3>
+                <div class="tags">
+                    <span>Cybersecurity</span><span>Linux (Ubuntu)</span><span>Git</span><span>Data Structures</span><span>Wireshark/Docker</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <footer>
         <h2>Let's Connect</h2>
-        <p>Looking For Experience</p>
-        <div class="social-links">
-            <a href="mailto:brooklyn_stitt@outlook.com">Email</a>
-            <!--<a href="https://github.com/yourusername">GitHub</a>-->
-            <a href="https://www.linkedin.com/in/brooklyn-stitt">LinkedIn</a>
+        <p style="margin: 1rem 0;">I'm currently looking for Summer internships.</p>
+        <div style="margin-bottom: 2rem;">
+            <a href="mailto:brooklyn_stitt@outlook.com" style="margin-right: 1.5rem; text-decoration: underline;">brooklyn_stitt@outlook.com</a>
         </div>
-        <p class="copyright">&copy; 2025. By Brooklyn Stitt.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">&copy; 2026 Brooklyn Stitt. Built with code.</p>
     </footer>
 
 </body>
